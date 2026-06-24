@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog - Home</title>
+  <link rel="stylesheet" href='{% static "style.css" %} '/>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="site-title">
+        <a href="/">My Blog</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-heading">Latest Posts</h1>
+
+    <ul class="post-list">
+{% for i in con %}
+      <li class="post-card">
+        <h2><a href="viewer/{{i.id}}">{{i.title}}</a></h2>
+        <p class="post-meta">{{i.date}}</p>
+        <p class="post-excerpt">
+
+          {{  i.body|truncatewords:20}}
+        </p>
+        <a class="read-more" href="viewer/{{i.id}}">Read more &rarr;</a>
+      </li>
+{% endfor %}
+{% if user.is_superuser %}
+<a href="new"><button>New</button></a>
+{% endif %}
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Blog. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

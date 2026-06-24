@@ -1,0 +1,15 @@
+
+{% csrf_token %}
+<form method="post" action="/new">
+{% csrf_token %}
+  <label for="name">Title:</label>
+  <input type="text"  name="title" required>
+  <br><p>                                             
+
+
+  </p><label for="email">body:</label><br>
+  <textarea  name="body" required style="height: 200; width:400 ;"></textarea>
+  
+  <button type="submit">Submit</button>
+
+</form>

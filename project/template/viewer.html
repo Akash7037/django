@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog - Getting Started with Django</title>
+   <link rel="stylesheet" href='{% static "style.css" %} '/>
+</head>
+<body>
+{% if user.is_superuser %}
+<a href="delete/{{dat.id}}"><button>DELETE</button></a>
+{% endif %}
+  <header>
+    <div class="container">
+      <div class="site-title">
+        <a href="/">My Blog</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post-full">
+    
+      <h1 class="post-title">{{dat.title}}</h1>
+      <p class="post-meta">{{dat.date}}</p>
+
+     
+
+      <p>{{dat.body|linebreaksbr}}</p>
+
+      <a class="back-link" href="/">&larr; Back to all posts</a>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Blog. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
