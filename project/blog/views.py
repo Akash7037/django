@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import user_passes_test
 from .models import data
 from .form import ProductForm
-con = data.objects.all()
+con = data.objects.filter(published=True)
 def home(req):
     return render(req,"home.html",{"con":con})
 def show(req,post):
