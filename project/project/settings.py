@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     'django-msz3.onrender.com',
 ]
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-msz3.onrender.com",
+]
 # Application definition
 
 INSTALLED_APPS = [
